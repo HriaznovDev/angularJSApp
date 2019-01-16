@@ -90043,7 +90043,7 @@ app.config(function ($stateProvider, $urlRouterProvider) {
 angular.module('myApp.home', [])
   .controller('homeCtrl', [
     function () {
-      this.welcomeText = 'Welcome to our Home page!';
+      this.firstTitle = 'Welcome to our Home page!';
     }
   ]);
 },{}]},{},[84]);
