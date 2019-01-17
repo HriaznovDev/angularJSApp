@@ -8,6 +8,7 @@ var browserSync = require('browser-sync').create();
 var uglify = require('gulp-uglify');
 var concat = require('gulp-concat');
 var environments = require('gulp-environments');
+var babel = require('gulp-babel');
 
 var development = environments.development;
 var production = environments.production;
@@ -22,6 +23,9 @@ gulp.task('lint', function () {
 
 gulp.task('scripts', function () {
   return gulp.src(['./src/assets/**/*.js', configFile])
+    .pipe(babel({
+      presets: ['env']
+    }))
     .pipe(uglify())
     .pipe(concat('vendor.min.js'))
     .pipe(gulp.dest('./public/'));
