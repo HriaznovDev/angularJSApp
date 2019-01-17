@@ -24,7 +24,7 @@ gulp.task('lint', function () {
 gulp.task('scripts', function () {
   return gulp.src(['./src/assets/**/*.js', configFile])
     .pipe(babel({
-      presets: ['env']
+      presets: ['es2015']
     }))
     .pipe(uglify())
     .pipe(concat('vendor.min.js'))
