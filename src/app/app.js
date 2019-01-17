@@ -1,11 +1,24 @@
 require('angular');
-require('angular-ui-router');
 require('angular-aria');
 require('angular-animate');
 require('angular-material');
-require('./components/home/home.js');
+require('./home/home.component.js');
 
-var app = angular.module('myApp', ['ui.router', 'ngMaterial', 'myApp.home']);
+const app = angular
+  .module('myApp', ['ngComponentRouter', 'ngMaterial', 'home'])
+  .config(function ($locationProvider) {
+    $locationProvider.html5Mode(true);
+  })
+  .value('$routerRootComponent', 'app')
+  .component('app', {
+    template: `
+      <a ng-link="['Home']">Home</a>
+      <ng-outlet></ng-outlet>
+    `,
+    $routeConfig: [
+      { path: '/home', name: 'Home', component: 'home', useAsDefault: true }
+    ]
+  });
 
 app.config(function ($stateProvider, $urlRouterProvider) {
 
@@ -16,10 +29,10 @@ app.config(function ($stateProvider, $urlRouterProvider) {
       url: "/",
       views: {
         "": {
-          templateUrl: "app/components/home/home.html"
+          templateUrl: "app/home/home.html"
         },
         "header@home": {
-          templateUrl: "app/shared/header/header.html"
+          templateUrl: "shared/header/header.html"
         }
       }
     });

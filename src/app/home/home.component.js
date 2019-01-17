@@ -13,6 +13,10 @@ class homeCtrl {
   }
 }
 
-angular.module('myApp.home', [])
+angular.module('myApp')
   .service('userService', UserService)
-  .controller('homeCtrl', homeCtrl);
+  .component('home', {
+    templateUrl: './home.html',
+    controller: homeCtrl,
+    controllerAs: 'homeCtrl'
+  });
