@@ -85148,23 +85148,21 @@ app.config(function ($stateProvider, $urlRouterProvider) {
 });
 },{"./components/home/home.js":85,"angular":83,"angular-animate":76,"angular-aria":78,"angular-material":80,"angular-ui-router":81}],85:[function(require,module,exports){
 class UserService {
-  getFullName() {
+  get getUserData() {
     return {
-      fullName: 'Denis'
+      name: 'Denis'
     };
   }
 }
 
 class homeCtrl {
   constructor(userService) {
-    userService.getFullName()
-      .then(result => this.userName = result.fullName);
-
-    this.firstTitle = 'Welcome to our page!';
+    this.user = userService.getUserData;
+    this.firstTitle = 'Welcome to our Home page';
   }
 }
 
-angular.module('home')
+angular.module('myApp.home', [])
   .service('userService', UserService)
   .controller('homeCtrl', homeCtrl);
 },{}]},{},[84]);

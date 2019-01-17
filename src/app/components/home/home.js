@@ -1,20 +1,18 @@
 class UserService {
-  getFullName() {
+  get getUserData() {
     return {
-      fullName: 'Denis'
+      name: 'Denis'
     };
   }
 }
 
 class homeCtrl {
   constructor(userService) {
-    userService.getFullName()
-      .then(result => this.userName = result.fullName);
-
-    this.firstTitle = 'Welcome to our page!';
+    this.user = userService.getUserData;
+    this.firstTitle = 'Welcome to our Home page';
   }
 }
 
-angular.module('home')
+angular.module('myApp.home', [])
   .service('userService', UserService)
   .controller('homeCtrl', homeCtrl);
