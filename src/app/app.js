@@ -1,29 +1,38 @@
-const angular = require('angular');
-const uiRouter = require('angular-ui-router');
-const AppComponent = require('./app.component');
+require('angular');
+require('angular-ui-router');
+require('angular-aria');
+require('angular-animate');
+require('angular-material');
+require('./components/home/home.component.js');
+require('./components/about/about.component.js');
 
-angular.module('app', [
-    uiRouter
-  ])
-  .config(($locationProvider, $stateProvider, $urlRouterProvider) => {
-    'ngInject';
+const app = angular.module('angularJSApp', ['ui.router', 'ngMaterial', 'home', 'about']);
 
-    // Define our app routing, we will keep our layout inside the app component
-    // The layout route will be abstract and it will hold all of our app views
-    $stateProvider
-      .state('app', {
-        url: '/app',
-        abstract: true,
-        template: '<app></app>'
-      })
+app.config(function ($stateProvider, $urlRouterProvider) {
 
-      // Dashboard page to contain our goats list page
-      .state('app.home', {
-        url: '/home',
-        template: 'Home page'
-      });
+  $urlRouterProvider.otherwise('/');
 
-    // Default page for the router
-    $urlRouterProvider.otherwise('/app/home');
-  })
-  .component('app', AppComponent);
+  $stateProvider
+    .state('home', {
+      url: '/',
+      views: {
+        "": {
+          templateUrl: "app/components/home/home.html"
+        },
+        "header@home": {
+          templateUrl: "app/shared/header/header.html"
+        }
+      }
+    })
+    .state('about', {
+      url: '/about',
+      views: {
+        "": {
+          templateUrl: "app/components/about/about.html"
+        },
+        "header@about": {
+          templateUrl: "app/shared/header/header.html"
+        }
+      }
+    });
+});
