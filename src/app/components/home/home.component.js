@@ -1,7 +1,7 @@
 angular.module('angularJSApp')
   .component('home', {
     templateUrl: './home.html',
-    bindings: {
-      welcomeText: 'Welcome to angularJSApp Home!'
+    controller: function HomeController() {
+      this.welcomeText = 'Welcome to angularJSApp Home!';
     }
   });

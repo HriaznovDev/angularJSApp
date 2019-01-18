@@ -3,36 +3,22 @@ require('angular-ui-router');
 require('angular-aria');
 require('angular-animate');
 require('angular-material');
-require('./components/home/home.component.js');
-require('./components/about/about.component.js');
 
-const app = angular.module('angularJSApp', ['ui.router', 'ngMaterial', 'home', 'about']);
+const app = angular.module('angularJSApp', ['ui.router', 'ngMaterial']);
 
 app.config(function ($stateProvider, $urlRouterProvider) {
-
-  $urlRouterProvider.otherwise('/');
-
-  $stateProvider
-    .state('home', {
+  const states = [{
+      name: 'home',
       url: '/',
-      views: {
-        "": {
-          templateUrl: "app/components/home/home.html"
-        },
-        "header@home": {
-          templateUrl: "app/shared/header/header.html"
-        }
-      }
-    })
-    .state('about', {
+      templateUrl: 'app/components/home/home.html'
+    },
+    {
+      name: 'about',
       url: '/about',
-      views: {
-        "": {
-          templateUrl: "app/components/about/about.html"
-        },
-        "header@about": {
-          templateUrl: "app/shared/header/header.html"
-        }
-      }
-    });
+      templateUrl: 'app/components/about/about.html'
+    }
+  ];
+
+  states.forEach((state) => $stateProvider.state(state.name, state));
+  $urlRouterProvider.otherwise('/');
 });
