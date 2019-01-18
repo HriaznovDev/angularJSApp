@@ -6,6 +6,10 @@ require('angular-material');
 
 const app = angular.module('angularJSApp', ['ui.router', 'ngMaterial']);
 
+app.controller('HomeController', function ($scope) {
+  $scope.welcomeText = 'Welcome to angularJSApp Home!';
+});
+
 app.config(function ($stateProvider, $urlRouterProvider) {
   const states = [{
       name: 'home',
