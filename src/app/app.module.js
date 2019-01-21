@@ -4,29 +4,27 @@ import 'angular-aria';
 import 'angular-animate';
 import 'angular-material';
 import {
-  AboutComponent
+  AboutComponent,
+  AboutController
 } from './components/about/about.component';
 import {
-  HomeComponent
+  HomeComponent,
+  HomeController
 } from './components/home/home.component';
 
 const app = angular
-  .module('angularJSApp', ['ui.router', 'ngMaterial'])
-  .component('home', HomeComponent)
-  .component('about', AboutComponent);
+  .module('angularJSApp', ['ui.router', 'ngMaterial']);
 
-app.controller('HomeController', function ($scope) {
-  $scope.welcomeText = 'Welcome to angularJSApp Home!';
-});
+app
+  .controller('HomeController', HomeController)
+  .controller('AboutController', AboutController);
 
 app.config(function ($stateProvider, $urlRouterProvider) {
   const states = [{
       name: 'home',
       url: '/',
       views: {
-        '': {
-          templateUrl: 'app/components/home/home.html'
-        },
+        '': HomeComponent,
         'header@home': {
           templateUrl: 'app/shared/header/header.html'
         }
@@ -36,9 +34,7 @@ app.config(function ($stateProvider, $urlRouterProvider) {
       name: 'about',
       url: '/about',
       views: {
-        '': {
-          templateUrl: 'app/components/about/about.html'
-        },
+        '': AboutComponent,
         'header@about': {
           templateUrl: 'app/shared/header/header.html'
         }

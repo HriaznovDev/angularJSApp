@@ -1,4 +1,4 @@
-class AboutController {
+export class AboutController {
   /** @ngInject */
   constructor() {
     this.text = 'Hello from about component';
@@ -6,7 +6,7 @@ class AboutController {
 }
 
 export const AboutComponent = {
-  templateUrl: './about.html',
-  controller: AboutController,
+  templateUrl: 'app/components/about/about.html',
+  controller: 'AboutController',
   controllerAs: 'aboutCtrl'
 };

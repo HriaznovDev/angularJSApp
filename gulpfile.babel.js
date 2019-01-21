@@ -45,7 +45,7 @@ gulp.task('browserify', function () {
 gulp.task('copy', ['browserify', 'scss'], function () {
   gulp.src(['./src/**/*.html', './src/**/*.css'])
     .pipe(gulp.dest('./public'))
-    .pipe(browserSync.stream())
+    .pipe(browserSync.stream());
 });
 
 gulp.task('scss', function () {

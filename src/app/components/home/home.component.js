@@ -1,4 +1,4 @@
-class HomeController {
+export class HomeController {
   /** @ngInject */
   constructor() {
     this.text = 'Hello from home component';
@@ -6,7 +6,7 @@ class HomeController {
 }
 
 export const HomeComponent = {
-  templateUrl: './home.html',
-  controller: HomeController,
+  templateUrl: 'app/components/home/home.html',
+  controller: 'HomeController',
   controllerAs: 'homeCtrl'
 };
