@@ -1,8 +1,8 @@
-require('angular');
-require('angular-ui-router');
-require('angular-aria');
-require('angular-animate');
-require('angular-material');
+import 'angular';
+import 'angular-ui-router';
+import 'angular-aria';
+import 'angular-animate';
+import 'angular-material';
 
 const app = angular.module('angularJSApp', ['ui.router', 'ngMaterial']);
 
