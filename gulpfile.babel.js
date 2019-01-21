@@ -33,8 +33,7 @@ gulp.task('scripts', function () {
 });
 
 gulp.task('browserify', function () {
-  // Grabs the app.js file
-  return browserify('./src/app/app.js')
+  return browserify('./src/app/app.module.js')
     .transform(babelify)
     // bundles it and creates a file called main.js
     .bundle()
