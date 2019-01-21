@@ -4,12 +4,10 @@ import 'angular-aria';
 import 'angular-animate';
 import 'angular-material';
 import {
-  AboutComponent,
-  AboutController
+  AboutComponent
 } from './components/about/about.component';
 import {
-  HomeComponent,
-  HomeController
+  HomeComponent
 } from './components/home/home.component';
 import {
   HeaderComponent
