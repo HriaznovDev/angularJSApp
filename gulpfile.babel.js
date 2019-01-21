@@ -1,6 +1,7 @@
 var gulp = require('gulp');
 var sass = require('gulp-sass');
 var browserify = require('browserify');
+var babelify = require('babelify');
 var source = require('vinyl-source-stream');
 var buffer = require('vinyl-buffer');
 var jshint = require('gulp-jshint');
@@ -34,10 +35,12 @@ gulp.task('scripts', function () {
 gulp.task('browserify', function () {
   // Grabs the app.js file
   return browserify('./src/app/app.js')
+    .transform(babelify)
     // bundles it and creates a file called main.js
     .bundle()
     .pipe(source('main.js'))
-    .pipe(gulp.dest('./public/'));
+    .pipe(gulp.dest('./public/'))
+    .pipe(buffer());
 });
 
 gulp.task('copy', ['browserify', 'scss'], function () {
