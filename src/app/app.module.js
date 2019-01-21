@@ -11,9 +11,15 @@ import {
   HomeComponent,
   HomeController
 } from './components/home/home.component';
+import {
+  HeaderComponent
+} from './shared/header/header.component';
 
 const app = angular
-  .module('angularJSApp', ['ui.router', 'ngMaterial']);
+  .module('angularJSApp', ['ui.router', 'ngMaterial'])
+  .component('header', HeaderComponent)
+  .component('home', HomeComponent)
+  .component('about', AboutComponent);
 
 app
   .controller('HomeController', HomeController)
@@ -24,20 +30,16 @@ app.config(function ($stateProvider, $urlRouterProvider) {
       name: 'home',
       url: '/',
       views: {
-        '': HomeComponent,
-        'header@home': {
-          templateUrl: 'app/shared/header/header.html'
-        }
+        '': 'home',
+        'header@home': 'header'
       }
     },
     {
       name: 'about',
       url: '/about',
       views: {
-        '': AboutComponent,
-        'header@about': {
-          templateUrl: 'app/shared/header/header.html'
-        }
+        '': 'about',
+        'header@about': 'header'
       }
     }
   ];
