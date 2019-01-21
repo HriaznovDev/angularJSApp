@@ -23,6 +23,6 @@ app.config(function ($stateProvider, $urlRouterProvider) {
     }
   ];
 
-  states.forEach((state) => $stateProvider.state(state));
+  states.forEach(state => $stateProvider.state(state));
   $urlRouterProvider.otherwise('/');
 });
