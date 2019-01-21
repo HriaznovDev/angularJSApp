@@ -7,6 +7,6 @@ export class AboutController {
 
 export const AboutComponent = {
   templateUrl: 'app/components/about/about.html',
-  controller: 'AboutController',
+  controller: AboutController,
   controllerAs: 'aboutCtrl'
 };

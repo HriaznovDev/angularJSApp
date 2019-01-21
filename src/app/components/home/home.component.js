@@ -7,6 +7,6 @@ export class HomeController {
 
 export const HomeComponent = {
   templateUrl: 'app/components/home/home.html',
-  controller: 'HomeController',
+  controller: HomeController,
   controllerAs: 'homeCtrl'
 };

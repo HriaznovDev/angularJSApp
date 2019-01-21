@@ -21,10 +21,6 @@ const app = angular
   .component('home', HomeComponent)
   .component('about', AboutComponent);
 
-app
-  .controller('HomeController', HomeController)
-  .controller('AboutController', AboutController);
-
 app.config(function ($stateProvider, $urlRouterProvider) {
   const states = [{
       name: 'home',
