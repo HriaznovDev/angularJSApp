@@ -23,12 +23,16 @@ app.config(function ($stateProvider, $urlRouterProvider) {
   const states = [{
       name: 'home',
       url: '/',
-      component: 'home'
+      views: {
+        'main': 'home'
+      }
     },
     {
       name: 'about',
       url: '/about',
-      component: 'about'
+      views: {
+        'main': 'about'
+      }
     }
   ];
 
