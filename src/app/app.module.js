@@ -12,9 +12,13 @@ import {
 import {
   HeaderComponent
 } from './shared/header/header.component';
+import {
+  PageWrapperComponent
+} from './components/page-wrapper/page-wrapper.component';
 
 const app = angular
   .module('angularJSApp', ['ui.router', 'ngMaterial'])
+  .component('pageWrapper', PageWrapperComponent)
   .component('header', HeaderComponent)
   .component('home', HomeComponent)
   .component('about', AboutComponent);
@@ -25,7 +29,8 @@ app.config(function ($stateProvider, $urlRouterProvider) {
       url: '/',
       views: {
         '': 'home',
-        'header@home': 'header'
+        'header@home': 'header',
+        'page-wrapper@home': 'pageWrapper'
       }
     },
     {
@@ -33,7 +38,8 @@ app.config(function ($stateProvider, $urlRouterProvider) {
       url: '/about',
       views: {
         '': 'about',
-        'header@about': 'header'
+        'header@about': 'header',
+        'page-wrapper@about': 'pageWrapper'
       }
     }
   ];
